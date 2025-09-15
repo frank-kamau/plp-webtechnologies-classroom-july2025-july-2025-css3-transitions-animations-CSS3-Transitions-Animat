@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CSS & JS Animations — Demo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+<div class="wrap">
+<h1>CSS & JavaScript Animations — Interactive Demo</h1>
+<p class="tag">Part 1: CSS Animations • Part 2: JS Functions • Part 3: Combined Interactions</p>
+</div>
+</header>
+<main class="wrap">
+
+
+<!-- PART 1: CSS Animations -->
+<section id="part1" class="panel">
+<h2>Part 1 — CSS Transitions & Keyframe Animations</h2>
+
+
+<div class="grid">
+<div class="card">
+<h3>Button Hover (Transition)</h3>
+<p>Buttons use smooth transform, shadow and color change on hover.</p>
+<button class="btn primary">Hover me</button>
+</div>
+
+
+<div class="card">
+<h3>Animated Banner (Keyframes)</h3>
+<div class="banner" aria-hidden="true">Welcome — CSS Animations</div>
+</div>
+
+
+<div class="card">
+<h3>Continuous Pulse</h3>
+<div class="pulse-box" id="pulseBox">Pulse</div>
+<div class="controls">
+<button class="btn" id="pulseToggle">Toggle Pulse</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PART 2: JS FUNCTIONS -->
+<section id="part2" class="panel">
+<h2>Part 2 — JavaScript Functions (scope, params, return)</h2>
+
+
+<div class="card">
+<h3>Function: calculateArea(width, height)</h3>
+<p>Enter two numbers; the function returns their product. Demonstrates parameters and return values.</p>
+<div class="row">
+<input id="w" type="number" placeholder="width" />
+<input id="h" type="number" placeholder="height" />
+<button class="btn" id="calcBtn">Calculate Area</button>
+</div>
+<p class="muted">Result: <span id="areaResult">—</span></p>
+</div>
+
+
+<div class="card">
+<h3>Scope Demo</h3>
+<p>We use a global variable and local variable inside a function to show scope differences.</p>
+<p>Global count: <span id="globalCount">0</span></p>
+<div class="row">
+<button class="btn" id="incGlobal">Increment Global</button>
+<button class="btn" id="localDemo">Local Variable Demo</button>
+</div>
+<p class="muted" id="scopeMessage">Local demo message will show here.</p>
+</div>
+</section>
+
+
+<!-- PART 3: COMBINED -->
+<section id="part3" class="panel">
+<h2>Part 3 — Combining CSS & JS</h2>
+
+
+<div class="grid">
+<div class="card">
+<h3>Card Flip (Click)</h3>
+<div class="flip-card" id="flipCard">
+<div class="flip-inner">
+<div class="front">Question</div>
+<div class="back">Answer</div>
+</div>
+</div>
+<p><button class="btn" id="flipBtn">Flip Card</button></p>
+</div>
+
+
+<div class="card">
+<h3>Modal (JS-created)</h3>
+<p>Click to open a modal that slides and fades in. Modal is created by a function and returns the element.</p>
+<button class="btn" id="openModal">Open Modal</button>
+</div>
+
+
+<div class="card">
+<h3>Loader (Start / Stop)</h3>
+<div id="loaderArea">
+<div class="loader hidden" id="loader"></div>
+</div>
+<div class="controls">
+<button class="btn" id="startLoad">Start Loader</button>
+<button class="btn" id="stopLoad">Stop Loader</button>
+</div>
+</div>
+</div>
+</section>
+
+
+</main>
+
+<footer class="site-footer">
+<div class="wrap">Built for the assignment — CSS3 + JavaScript • Accessible & documented</div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* styles.css - CSS transitions, keyframes, and styles for interactive demo */
+:root{
+--bg:#f5f8fb; --card:#ffffff; --text:#122; --accent:#0b63ff; --muted:#5b6b7a;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+.wrap{max-width:980px;margin:0 auto;padding:1rem}
+.site-header{padding:1rem 0;border-bottom:1px solid rgba(0,0,0,0.06)}
+.tag{color:var(--muted)}
+.panel{margin-top:1.25rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(10,20,30,0.04)}
+.btn{padding:0.5rem 0.9rem;border-radius:8px;border:1px solid rgba(10,80,200,0.12);background:white;color:var(--accent);cursor:pointer}
+.btn.primary{background:var(--accent);color:white;border:none}
+.row{display:flex;gap:0.5rem;align-items:center}
+.input{padding:0.5rem}
+.muted{color:var(--muted)}
+
+/* ---------- Part 1: Transitions & Keyframes ---------- */
+/* Button hover transition */
+.btn{transition:transform .18s ease, box-shadow .18s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(11,99,255,0.08)}
+
+
+/* Banner keyframes: slide-in + color pulse */
+.banner{padding:0.75rem;border-radius:8px;background:linear-gradient(90deg,#e6f0ff, #fff);text-align:center;font-weight:700;animation:slideIn 1s ease both, bannerPulse 4s ease-in-out infinite}
+@keyframes slideIn{from{transform:translateY(-8px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes bannerPulse{0%{box-shadow:0 0 0 rgba(11,99,255,0)}50%{box-shadow:0 8px 30px rgba(11,99,255,0.06)}100%{box-shadow:0 0 0 rgba(11,99,255,0)}}
+
+
+/* Pulse box (toggle via JS) */
+.pulse-box{padding:1rem;border-radius:8px;text-align:center;background:#fff;border:1px solid rgba(0,0,0,0.06)}
+.pulse-on{animation:pulse 1.6s infinite ease-in-out}
+@keyframes pulse{0%{transform:scale(1);box-shadow:0 0 0 rgba(11,99,255,0.00)}50%{transform:scale(1.03);box-shadow:0 10px 32px rgba(11,99,255,0.06)}100%{transform:scale(1);box-shadow:0 0 0 rgba(11,99,255,0)}}
+
+
+/* ---------- Part 3: Flip card ---------- */
+.flip-card{width:180px;height:120px;perspective:1000px;margin:0.5rem auto}
+.flip-inner{width:100%;height:100%;position:relative;transition:transform .6s;transform-style:preserve-3d;border-radius:8px}
+.flip-card .front,.flip-card .back{position:absolute;width:100%;height:100%;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;border-radius:8px;font-weight:700}
+.flip-card .front{background:linear-gradient(120deg,#fff,#f2f8ff);border:1px solid rgba(0,0,0,0.06)}
+.flip-card .back{background:linear-gradient(120deg,#0b63ff,#7db4ff);color:white;transform:rotateY(180deg)}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+
+/* ---------- Modal ---------- */
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:flex;align-items:center;justify-content:center;animation:fadeIn .18s}
+.modal{background:var(--card);padding:1rem;border-radius:10px;min-width:280px;max-width:90%;transform:translateY(12px);animation:popIn .28s both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes popIn{from{transform:translateY(12px) scale(.98);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+
+
+/* ---------- Loader ---------- */
+.loader{width:48px;height:48px;border-radius:50%;border:6px solid #e6eef9;border-top-color:var(--accent);animation:spin 1s linear infinite;margin:0.5rem auto}
+.hidden{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+
+/* Responsive */
+@media (max-width:600px){.grid{grid-template-columns:1fr}.flip-card{margin:8px auto}}
